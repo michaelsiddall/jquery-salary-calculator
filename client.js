@@ -1,6 +1,8 @@
 $(document).ready(onReady);
 
 let employee = [];
+let totalAnnualSalary = 0;
+maxMonthlyCost = 20000;
 
 console.log(employee);
 
@@ -23,7 +25,7 @@ function addEmployee() {
     $("#idNumberIn").val(""),
     $("#titleIn").val(""),
     $("#annualSalaryIn").val(""),
-    displayEmployee();
+    displayEmployeeTable();
   //display employees
 } // end addEmployee
 
@@ -35,36 +37,38 @@ function onReady() {
   console.log("added Employee");
 }
 
-function displayEmployee() {
-  console.log("in displayEmployee");
+function displayEmployeeTable() {
+  console.log("in displayEmployeeTable");
   //target an ul element on DOM
-  let el = $("#employeeOut");
+  let el = $(".employeeData");
   // empty el
   el.empty();
   // loop through array
   for (let i = 0; i < employee.length; i++) {
     // append each item to the ul
     el.append(
-      `<li>${employee[i].firstName} ${employee[i].lastName} ${employee[i].idNumber} ${employee[i].title} ${employee[i].annualSalary}</li>`
+      `<tr><td>${employee[i].firstName}</td><td>${employee[i].lastName}</td><td>${employee[i].idNumber}</td><td>${employee[i].title}</td><td>${employee[i].annualSalary}</td></tr>`
     );
   }
+  monthlyCosts();
 }
 
 function monthlyCosts() {
   console.log("in monthlyCosts");
 
-  let totalAnnualSalary = 0;
   // loop through employee array
   for (let i = 0; i < employee.length; i++) {
     // for all employee, add up total annual salary
-    totalAnnualSalary = totalAnnualSalary += Number(employee[i].annualSalary);
-  } // end for
-  console.log("in totalAnnualSalary", totalAnnualSalary);
+    totalAnnualSalary += Number(employee[i].annualSalary);
+    let totalMonthlyCosts = totalAnnualSalary / 12;
+    console.log("totalMonthlyCosts", totalMonthlyCosts);
+    let el = $("#totalMonthlyCostsOut");
+    el.empty();
+    el.append(totalMonthlyCosts);
+    return totalMonthlyCosts;
+  }
+
+  // end for
 
   // determine monthly salary for each employee
-  let totalMonthlySalary = totalAnnualSalary / 12;
-  console.log("totalMonthlySalary", totalMonthlySalary);
-  let el = $("#totalMonthlySalaryOut");
-  el.empty();
-  el.append(totalMonthlySalary);
 }
