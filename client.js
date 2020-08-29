@@ -61,6 +61,9 @@ function monthlyCosts() {
     // for all employee, add up total annual salary
     totalAnnualSalary += Number(employee[i].annualSalary);
     let totalMonthlyCosts = totalAnnualSalary / 12;
+    if (totalMonthlyCosts >= maxMonthlyCost) {
+      $("#totalMonthlyCostsOut").css("background-color", "red");
+    }
     console.log("totalMonthlyCosts", totalMonthlyCosts);
     let el = $("#totalMonthlyCostsOut");
     el.empty();
