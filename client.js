@@ -60,18 +60,19 @@ function monthlyCosts() {
   for (let i = 0; i < employee.length; i++) {
     // for all employee, add up total annual salary
     totalAnnualSalary += Number(employee[i].annualSalary);
+    // annual salary converted to monthly salary
     let totalMonthlyCosts = totalAnnualSalary / 12;
+    // // conditional if monthly >== $20,0000
     if (totalMonthlyCosts >= maxMonthlyCost) {
       $("#totalMonthlyCostsOut").css("background-color", "red");
     }
-    console.log("totalMonthlyCosts", totalMonthlyCosts);
+
+    //console.log("totalMonthlyCosts", totalMonthlyCosts);
     let el = $("#totalMonthlyCostsOut");
     el.empty();
     el.append(totalMonthlyCosts);
-    return totalMonthlyCosts;
-  }
+    //return totalMonthlyCosts;
 
-  // end for
-
-  // determine monthly salary for each employee
+    // end for
+  } // determine monthly salary for each employee
 }
