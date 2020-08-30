@@ -33,8 +33,9 @@ function onReady() {
   console.log("Lets go!");
   //capture click event
 
-  $("#addEmployeeBtn").on("click", addEmployee);
-  console.log("added Employee");
+  $(document).on("click", "#addEmployeeBtn", addEmployee);
+
+  $(document).on("click", ".deleteBtn", deleteBtn);
 }
 
 function displayEmployeeTable() {
@@ -47,7 +48,14 @@ function displayEmployeeTable() {
   for (let i = 0; i < employee.length; i++) {
     // append each item to the ul
     el.append(
-      `<tr><td>${employee[i].firstName}</td><td>${employee[i].lastName}</td><td>${employee[i].idNumber}</td><td>${employee[i].title}</td><td>${employee[i].annualSalary}</td></tr>`
+      `<tr>
+      <td>${employee[i].firstName}</td>
+      <td>${employee[i].lastName}</td>
+      <td>${employee[i].idNumber}</td>
+      <td>${employee[i].title}</td>
+      <td>${employee[i].annualSalary}</td>
+      <td><button type="submit" class="deleteBtn">Delete</button>
+      </tr>`
     );
   }
   monthlyCosts();
@@ -78,5 +86,9 @@ function monthlyCosts() {
     //return totalMonthlyCosts;
 
     // end for
-  } // determine monthly salary for each employee
+  }
+}
+function deleteBtn() {
+  let thisRow = $(this).closest("tr");
+  thisRow.remove();
 }
