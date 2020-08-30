@@ -1,3 +1,8 @@
+#addEmployeeBtn {
+  position: relative;
+  margin: 10px;
+  right: -714px;
+}
 #employeeTableOut tr:hover {
   background-color: #ddd;
 }
@@ -10,6 +15,16 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4caf50;
+  background-color: #f19d4d;
   color: white;
+}
+
+h1 {
+  text-align: center;
+  background-color: #dfdaa4;
+  padding: 10px;
+}
+
+div.inputs {
+  width: ;
 }

@@ -29,15 +29,10 @@ function addEmployee() {
   //display employees
 } // end addEmployee
 
-function onReady() {
-  console.log("Lets go!");
-  //capture click event
-
-  $(document).on("click", "#addEmployeeBtn", addEmployee);
-
-  $(document).on("click", ".deleteBtn", deleteBtn);
+function deleteBtn() {
+  let thisRow = $(this).closest("tr");
+  thisRow.remove();
 }
-
 function displayEmployeeTable() {
   console.log("in displayEmployeeTable");
   //target an ul element on DOM
@@ -80,6 +75,8 @@ function monthlyCosts() {
     let dividedMonthly = salaryNumber / 12;
     // annual salary converted to monthly salary
     totalAnnualSalary += dividedMonthly;
+    nfObject = new Intl.NumberFormat("en-US");
+    output = nfObject.format(totalAnnualSalary);
     //conditional if monthly >== $20,0000
     if (totalAnnualSalary > maxMonthlyCost) {
       $("#totalMonthlyCostsOut").css("background-color", "red");
@@ -94,10 +91,16 @@ function monthlyCosts() {
     // end for
   }
 }
-function deleteBtn() {
-  let thisRow = $(this).closest("tr");
-  thisRow.remove();
-}
+
 function newFunction() {
   addEmployee();
+}
+
+function onReady() {
+  console.log("Lets go!");
+  //capture click event
+
+  $(document).on("click", "#addEmployeeBtn", addEmployee);
+
+  $(document).on("click", ".deleteBtn", deleteBtn);
 }
