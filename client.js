@@ -65,26 +65,23 @@ function displayEmployeeTable() {
 function monthlyCosts() {
   console.log("in monthlyCosts");
   let totalAnnualSalary = 0;
-
   // loop through employee array
   $("#totalMonthlyCostsOut").val("");
   for (let i = 0; i < employee.length; i++) {
     // for all employee, add up total annual salary
-    let salary = employee[i].annualSalary;
-    let salaryNumber = Number(salary);
-    let dividedMonthly = salaryNumber / 12;
-    // annual salary converted to monthly salary
-    totalAnnualSalary += dividedMonthly;
-    // nfObject = new Intl.NumberFormat("en-US");
-    // output = nfObject.format(totalAnnualSalary);
+    totalAnnualSalary += employee[i].annualSalary / 12;
+    let totalMonthlyCost = totalAnnualSalary;
+    // let dividedMonthly = salaryNumber / 12;
+    // // annual salary converted to monthly salary
+    // totalAnnualSalary += dividedMonthly;
     //conditional if monthly >== $20,0000
-    if (totalAnnualSalary > maxMonthlyCost) {
+
+    if (totalMonthlyCost > maxMonthlyCost) {
       $("#totalMonthlyCostsOut").css("background-color", "red");
     }
-
-    //console.log("totalMonthlyCosts", totalMonthlyCosts);
     $("#totalMonthlyCostsOut").val("");
-    $("#totalMonthlyCostsOut").text(totalAnnualSalary.toFixed(2));
+    $("#totalMonthlyCostsOut").text(totalMonthlyCost.toFixed(2));
+    //console.log("totalMonthlyCosts", totalMonthlyCosts);
 
     //return totalMonthlyCosts;
 
