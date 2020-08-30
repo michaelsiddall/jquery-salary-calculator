@@ -1,10 +1,15 @@
 #addEmployeeBtn {
   position: relative;
   margin: 10px;
-  right: -714px;
+  right: -727px;
 }
 #employeeTableOut tr:hover {
   background-color: #ddd;
+}
+#employeeTableOut td,
+#employeeTableOut th {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 #employeeTableOut {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -26,5 +31,24 @@ h1 {
 }
 
 div.inputs {
-  width: ;
+  border: none;
+  box-shadow: 1px 1px 1px #ccc;
+  flex: 0;
+  padding: 10px;
+  transition: all 0.75s;
+  background: #ddd;
+  margin: 0 auto;
+  max-width: 52em;
+  /* padding-top: 2em; */
+  font-size: 20px;
+}
+input::placeholder {
+  font-size: 15px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+h3 {
+  position: relative;
+  margin: 10px;
+  right: -714px;
 }
