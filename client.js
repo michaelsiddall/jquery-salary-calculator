@@ -60,7 +60,13 @@ function displayEmployeeTable() {
   }
   monthlyCosts();
 }
+// function requireAllInputs
+//   if ({$firstNameIn} {$lastNameIn} {$idNumberIn} {$titleIn} {$annualSalaryIn}) {
+//     newFunction();
+// } else {
+//   alert("This form will not submit");
 
+// }
 function monthlyCosts() {
   console.log("in monthlyCosts");
   let totalAnnualSalary = 0;
@@ -91,4 +97,7 @@ function monthlyCosts() {
 function deleteBtn() {
   let thisRow = $(this).closest("tr");
   thisRow.remove();
+}
+function newFunction() {
+  addEmployee();
 }

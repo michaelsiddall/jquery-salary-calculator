@@ -1,8 +1,15 @@
-/* table {
-  background-color: darkgrey;
-  display: table;
-  border-collapse: separate;
-  box-sizing: border-box;
-  border-spacing: 5px;
-  border-color: black;
-} */
+#employeeTableOut tr:hover {
+  background-color: #ddd;
+}
+#employeeTableOut {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#employeeTableOut th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
