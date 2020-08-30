@@ -1,7 +1,7 @@
 $(document).ready(onReady);
 
 let employee = [];
-let totalAnnualSalary = 0;
+
 maxMonthlyCost = 20000;
 
 console.log(employee);
@@ -55,22 +55,26 @@ function displayEmployeeTable() {
 
 function monthlyCosts() {
   console.log("in monthlyCosts");
+  let totalAnnualSalary = 0;
 
   // loop through employee array
+  $("#totalMonthlyCostsOut").val("");
   for (let i = 0; i < employee.length; i++) {
     // for all employee, add up total annual salary
-    totalAnnualSalary += Number(employee[i].annualSalary);
+    let salary = employee[i].annualSalary;
+    let salaryNumber = Number(salary);
+    let dividedMonthly = salaryNumber / 12;
     // annual salary converted to monthly salary
-    let totalMonthlyCosts = totalAnnualSalary / 12;
-    // // conditional if monthly >== $20,0000
-    if (totalMonthlyCosts >= maxMonthlyCost) {
+    totalAnnualSalary += dividedMonthly;
+    //conditional if monthly >== $20,0000
+    if (totalAnnualSalary > maxMonthlyCost) {
       $("#totalMonthlyCostsOut").css("background-color", "red");
     }
 
     //console.log("totalMonthlyCosts", totalMonthlyCosts);
-    let el = $("#totalMonthlyCostsOut");
-    el.empty();
-    el.append(totalMonthlyCosts);
+    $("#totalMonthlyCostsOut").val("");
+    $("#totalMonthlyCostsOut").text(totalAnnualSalary.toFixed(2));
+
     //return totalMonthlyCosts;
 
     // end for
