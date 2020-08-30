@@ -48,7 +48,7 @@ function displayEmployeeTable() {
       <td>${employee[i].lastName}</td>
       <td>${employee[i].idNumber}</td>
       <td>${employee[i].title}</td>
-      <td>${employee[i].annualSalary}</td>
+      <td>$${employee[i].annualSalary}</td>
       <td><button type="submit" class="deleteBtn">Delete</button>
       </tr>`
     );
@@ -75,8 +75,8 @@ function monthlyCosts() {
     let dividedMonthly = salaryNumber / 12;
     // annual salary converted to monthly salary
     totalAnnualSalary += dividedMonthly;
-    nfObject = new Intl.NumberFormat("en-US");
-    output = nfObject.format(totalAnnualSalary);
+    // nfObject = new Intl.NumberFormat("en-US");
+    // output = nfObject.format(totalAnnualSalary);
     //conditional if monthly >== $20,0000
     if (totalAnnualSalary > maxMonthlyCost) {
       $("#totalMonthlyCostsOut").css("background-color", "red");
@@ -90,10 +90,6 @@ function monthlyCosts() {
 
     // end for
   }
-}
-
-function newFunction() {
-  addEmployee();
 }
 
 function onReady() {

@@ -3,6 +3,10 @@
   margin: 10px;
   right: -727px;
 }
+.inputs::#annualSalaryIn::before {
+  content: "$";
+}
+
 #employeeTableOut tr:hover {
   background-color: #ddd;
 }
@@ -42,6 +46,7 @@ div.inputs {
   /* padding-top: 2em; */
   font-size: 20px;
 }
+
 input::placeholder {
   font-size: 15px;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
