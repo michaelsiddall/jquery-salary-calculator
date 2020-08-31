@@ -36,14 +36,14 @@ h1 {
 
 div.inputs {
   border: none;
-  box-shadow: 1px 1px 1px #ccc;
+  box-shadow: 1px 1px 1px 1px #ccc;
   flex: 0;
   padding: 10px;
   transition: all 0.75s;
   background: #ddd;
   margin: 0 auto;
-  max-width: 52em;
-  /* padding-top: 2em; */
+  max-width: 40em;
+
   font-size: 20px;
 }
 
