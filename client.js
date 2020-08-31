@@ -1,10 +1,7 @@
 $(document).ready(onReady);
 
 let employee = [];
-
 maxMonthlyCost = 20000;
-
-console.log(employee);
 
 function addEmployee() {
   console.log("in addEmployee");
@@ -26,6 +23,7 @@ function addEmployee() {
     $("#titleIn").val(""),
     $("#annualSalaryIn").val(""),
     displayEmployeeTable();
+
   //display employees
 } // end addEmployee
 
@@ -35,13 +33,19 @@ function deleteBtn() {
 }
 function displayEmployeeTable() {
   console.log("in displayEmployeeTable");
-  //target an ul element on DOM
+  //target an table element on DOM
+  // $("#firstNameIn").val(""),
+  //   $("#lastNameIn").val(""),
+  //   $("#idNumberIn").val(""),
+  //   $("#titleIn").val(""),
+  //   $("#annualSalaryIn").val("");
   let el = $(".employeeData");
   // empty el
   el.empty();
-  // loop through array
+  // // loop through array
   for (let i = 0; i < employee.length; i++) {
-    // append each item to the ul
+    // append each item to the table
+
     el.append(
       `<tr>
       <td>${employee[i].firstName}</td>
@@ -55,35 +59,22 @@ function displayEmployeeTable() {
   }
   monthlyCosts();
 }
-// function requireAllInputs
-//   if ({$firstNameIn} {$lastNameIn} {$idNumberIn} {$titleIn} {$annualSalaryIn}) {
-//     newFunction();
-// } else {
-//   alert("This form will not submit");
 
-// }
 function monthlyCosts() {
   console.log("in monthlyCosts");
   let totalAnnualSalary = 0;
   // loop through employee array
-  $("#totalMonthlyCostsOut").val("");
+  // $("#totalMonthlyCostsOut").val("");
   for (let i = 0; i < employee.length; i++) {
     // for all employee, add up total annual salary
-    totalAnnualSalary += employee[i].annualSalary / 12;
-    let totalMonthlyCost = totalAnnualSalary;
-    // let dividedMonthly = salaryNumber / 12;
-    // // annual salary converted to monthly salary
-    // totalAnnualSalary += dividedMonthly;
-    //conditional if monthly >== $20,0000
+    totalAnnualSalary = totalAnnualSalary + employee[i].annualSalary / 12;
+    let totalMonthlyCost = Number(totalAnnualSalary);
 
     if (totalMonthlyCost > maxMonthlyCost) {
       $("#totalMonthlyCostsOut").css("background-color", "red");
     }
     $("#totalMonthlyCostsOut").val("");
     $("#totalMonthlyCostsOut").text(totalMonthlyCost.toFixed(2));
-    //console.log("totalMonthlyCosts", totalMonthlyCosts);
-
-    //return totalMonthlyCosts;
 
     // end for
   }
